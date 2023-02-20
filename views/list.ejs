@@ -1,0 +1,28 @@
+<%- include('header') -%>
+
+
+    <div class = box id = "heading">
+        <h1><%= listtype %> </h1>
+    </div>
+    
+
+    <div class = "box">
+        
+        <% for (let i = 0;i < items.length;i++){ %>
+        <form action="/delete" method="post">
+        <div class = "item">
+            <input name = "checkBox" value = <%= items[i]._id %> type="checkbox" onchange="this.form.submit()">
+            <p><%= items[i].name %></p>
+        </div>
+        <input type = "hidden" name = "hiddenList" value = "<%=listtype%>">
+        </form>
+        <%} %>
+
+        <form class = "item" action = "/add" , method="post">
+            <input type="text" name = "newitem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name = "button" value = "<%=listtype%>">+</button> <!--Specifying the value in the button
+                We can get this value of button when we use req.body.button to identify button states-->
+        </form>
+    </div>
+    <%- include('footer') -%>
+
