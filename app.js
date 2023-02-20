@@ -15,12 +15,7 @@ app.listen(3000,function(){
 
 //connect to mongodb
 mongoose.set("strictQuery", false);
-//mongoose.connect("mongodb://127.0.0.1:27017/todolistdb"); to connect to local db
-// when we want to connect to cloud atlas database storage , we just need to change one thing, the url is below
-//mongodb+srv://admin_ankit:<password>@cluster0.3vhjems.mongodb.net/?retryWrites=true&w=majority
-mongoose.connect("mongodb+srv://admin_ankit:yG903rAu@cluster0.3vhjems.mongodb.net/todolistdb"); // voila, we have connected to cloud
-
-
+mongoose.connect("mongodb://127.0.0.1:27017/todolistdb"); //to connect to local db
 
 // create a mongoose schema and model
 const itemSchema = new mongoose.Schema({
